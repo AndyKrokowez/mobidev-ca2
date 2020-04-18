@@ -18,6 +18,7 @@ export class CharacterDetailsPage implements OnInit {
       this.charactersName = this.activatedRoute.snapshot.paramMap.get('name');
     this.api.getCharacter(this.charactersName).subscribe(res => {
       this.characters = res[0];
+      
     })
   }
 
