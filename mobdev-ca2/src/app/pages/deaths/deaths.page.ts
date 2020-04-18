@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ApiService } from '../../services/api.service';
+
 
 @Component({
   selector: 'app-deaths',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeathsPage implements OnInit {
 
-  constructor() { }
+    deaths: Observable<any>;
 
-  ngOnInit() {
-  }
-
+  constructor(private router: Router, private api: ApiService) { }
+    ngOnInit() {
+        this.deaths = this.api.getDeaths();
+        this.deaths.subscribe(data => {
+            console.log('my data: ', data);
+        });
+    }
+    openDetails(death) {
+        let deathCount = death.deathCount;
+        this.router.navigateByUrl(`/tabs/episodes/${deathCount}`);
+    }
 }
