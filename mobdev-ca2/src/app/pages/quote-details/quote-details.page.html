@@ -3,7 +3,17 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/quotes"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Quote Details</ion-title>
+		<ion-title>By: {{ quote?.author }}</ion-title>
+
+		<ion-buttons slot="end">
+			<ion-button (click)="unfavouriteQuote()" *ngIf="isFavourite">
+				<ion-icon name="thumbs-up" slot="icon-only"></ion-icon>
+			</ion-button>
+			<ion-button (click)="favouriteQuote()" *ngIf="!isFavourite">
+				<ion-icon name="thumbs-up-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
 	</ion-toolbar>
 </ion-header>
 
@@ -11,12 +21,7 @@
 	<ion-card *ngIf="quote">
 		<ion-list>
 			<ion-item>
-				<ion-label> Author </ion-label>
-				{{ quote.author }}
-			</ion-item>
 
-			<ion-item>
-				<ion-label> Quote </ion-label>
 				{{ quote.quote }}
 			</ion-item>
 		</ion-list>

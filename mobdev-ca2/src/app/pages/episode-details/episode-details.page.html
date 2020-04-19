@@ -3,9 +3,25 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/episodes"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Episode Details</ion-title>
+		<ion-title>{{ episode?.title }}</ion-title>
+
+
+
+		<ion-buttons slot="end">
+			<ion-button (click)="unfavouriteEpisode()" *ngIf="isFavourite">
+				<ion-icon name="thumbs-up" slot="icon-only"></ion-icon>
+			</ion-button>
+			<ion-button (click)="favouriteEpisode()" *ngIf="!isFavourite">
+				<ion-icon name="thumbs-up-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
 	</ion-toolbar>
 </ion-header>
+
+
+
+
 
 <ion-content>
 
