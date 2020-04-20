@@ -12,7 +12,7 @@ export class QuoteDetailsPage implements OnInit {
 
     quote: any;
     quoteId = null;
-    isFavouriteQuote = false;
+    isFavourite = false;
 
 
     constructor(private activatedRoute:
@@ -29,19 +29,19 @@ export class QuoteDetailsPage implements OnInit {
             console.log(JSON.stringify(this.quote.quote_id));
         });
      this.favouriteService.isFavouriteCharacter(this.quoteId).then(isFavorite => {
-            this.isFavouriteQuote = isFavorite;
+            this.isFavourite = isFavorite;
         });
     }
 
     favouriteCharacter() {
         this.favouriteService.favouriteCharacter(this.quoteId).then(() => {
-            this.isFavouriteQuote = true;
+            this.isFavourite = true;
         });
     }
 
     unfavouriteCharacter() {
         this.favouriteService.unfavouriteCharacter(this.quoteId).then(() => {
-            this.isFavouriteQuote = false;
+            this.isFavourite = false;
         });
     }
 }

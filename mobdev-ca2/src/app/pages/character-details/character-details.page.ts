@@ -12,7 +12,7 @@ import { FavouriteService } from './../../services/favourite.service';
 export class CharacterDetailsPage implements OnInit {
     character: any;
     characterId = null;
-    isFavouriteCharacter = false;
+    isFavourite = false;
 
 
     constructor(private activatedRoute:
@@ -29,19 +29,19 @@ export class CharacterDetailsPage implements OnInit {
         });
 
         this.favouriteService.isFavouriteCharacter(this.characterId).then(isFavorite => {
-            this.isFavouriteCharacter = isFavorite;
+            this.isFavourite = isFavorite;
         });
     }
 
     favouriteCharacter() {
         this.favouriteService.favouriteCharacter(this.characterId).then(() => {
-            this.isFavouriteCharacter = true;
+            this.isFavourite = true;
         });
     }
 
     unfavouriteCharacter() {
         this.favouriteService.unfavouriteCharacter(this.characterId).then(() => {
-            this.isFavouriteCharacter = false;
+            this.isFavourite = false;
         });
     }
 }
