@@ -19,5 +19,20 @@ export class DeathsPage implements OnInit {
         this.deaths.subscribe(data => {
             console.log('my data', data);
         });
+
+
+        // to get the total number of deaths
+
+ //       this.deaths = this.api.getDeath();
+ //       this.deaths.subscribe(data => {
+ //           console.log('my data', data);
+ //       });
+ // include on deaths.page.html 
+ // to show the total number of deaths
+// Number total of Death: {{ death.deathCount }}
+
     }
+    
+     
+    
 }
