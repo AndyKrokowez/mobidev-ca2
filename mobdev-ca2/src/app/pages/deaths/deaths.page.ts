@@ -10,7 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class DeathsPage implements OnInit {
 
-    deaths: Observable<any>;
+    deaths: any;
+    deathsId: Observable<any>
+    searchQuery: string = '';
 
     constructor(private router: Router, private api: ApiService) { }
 
@@ -32,6 +34,17 @@ export class DeathsPage implements OnInit {
 // Number total of Death: {{ death.deathCount }}
 
     }
+        SearchQuotes(ev: any) {
+    this.deaths = this.api.getQuotes();
+
+    var val = ev.target.value;
+    
+    if (val && val.trim() != '') {
+      this.deaths = this.deaths.filter((quote) => {
+        return (quote.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
     
      
     

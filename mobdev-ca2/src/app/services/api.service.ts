@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
+
+
+
 export class ApiService {
 
+    url = `https://www.breakingbadapi.com/api/episodes`;
+
     constructor(private http: HttpClient) { }
+
+    searchData(title: string): Observable<any> {
+    return this.http.get(`${this.url}?s=${encodeURI(title)}`).pipe(
+      map(results => results['Search']));
+
+    }
 
     getEpisodes() {
         return this.http.get(`https://www.breakingbadapi.com/api/episodes`);
