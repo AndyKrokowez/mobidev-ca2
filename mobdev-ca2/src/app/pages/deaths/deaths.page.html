@@ -1,12 +1,17 @@
 <ion-header>
 	<ion-toolbar color="medium">
 		<ion-title>Deaths</ion-title>
+		<ion-progress-bar value="0.25" buffer="0.8"></ion-progress-bar>
+		<ion-progress-bar type="indeterminate"></ion-progress-bar>
+		<ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder="Search Death"></ion-searchbar>
+	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder="Search Death">
+	</ion-searchbar>
 
 	<ion-list>
 		<ion-item button *ngFor="let death of deaths | async">
@@ -15,4 +20,3 @@
 	</ion-list>
 
 </ion-content>
-
