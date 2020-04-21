@@ -6,7 +6,7 @@
 
 <ion-content>
 
-	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder="Search Quote"></ion-searchbar>
 
 	<ion-list>
 		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quote)">

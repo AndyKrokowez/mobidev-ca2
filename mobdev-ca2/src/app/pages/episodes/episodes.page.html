@@ -3,7 +3,6 @@
 		<ion-title>Episodes</ion-title>
 	</ion-toolbar>
 </ion-header>
-
 <ion-content>
 	<ion-list>
 		<ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">

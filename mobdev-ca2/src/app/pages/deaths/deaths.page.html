@@ -6,7 +6,7 @@
 
 <ion-content>
 
-	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder="Search Death"></ion-searchbar>
 
 	<ion-list>
 		<ion-item button *ngFor="let death of deaths | async">
