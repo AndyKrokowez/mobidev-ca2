@@ -12,7 +12,7 @@ export class QuotesPage implements OnInit {
 
     quotes: any;
     quotesId: Observable<any>
-    searchQuery: string = '';
+    
 
     constructor(private router: Router, private api: ApiService) { }
 
@@ -29,16 +29,4 @@ export class QuotesPage implements OnInit {
         this.router.navigateByUrl(`/tabs/quotes/${quotesId}`);
 
     }
-
-    SearchQuotes(ev: any) {
-    this.quotes = this.api.getQuotes();
-
-    var val = ev.target.value;
-    
-    if (val && val.trim() != '') {
-      this.quotes = this.quotes.filter((quote) => {
-        return (quote.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
-  }
 }
