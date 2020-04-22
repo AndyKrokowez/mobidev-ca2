@@ -16,8 +16,8 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     searchData(title: string): Observable<any> {
-    return this.http.get(`${this.url}?s=${encodeURI(title)}`).pipe(
-      map(results => results['Search']));
+        return this.http.get(`${this.url}?s=${encodeURI(title)}`).pipe(
+            map(results => results['Search']));
 
     }
 
@@ -50,7 +50,4 @@ export class ApiService {
         return this.http.get(`https://www.breakingbadapi.com/api/deaths`)
     }
 
-    getDeath() {
-        return this.http.get('https://www.breakingbadapi.com/api/death-count');
-    }
 }
