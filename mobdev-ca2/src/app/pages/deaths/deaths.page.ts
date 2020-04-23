@@ -11,7 +11,7 @@ import { SearchService, SearchType } from 'src/app/services/search.service';
 })
 export class DeathsPage implements OnInit {
 
-    deaths: any;
+    deaths: Observable<any>;
     deathsId: Observable<any>
     searchTerm: string = '';
     type: SearchType = SearchType.all;
@@ -23,6 +23,12 @@ export class DeathsPage implements OnInit {
         this.deaths.subscribe(data => {
             console.log('my data', data);
         });
+    }
+
+    openDetails(death) {
+        let deathsId = death.death_id;
+        this.router.navigateByUrl(`/tabs/deaths/${deathsId}`);
+
     }
 
     searchChanged() {

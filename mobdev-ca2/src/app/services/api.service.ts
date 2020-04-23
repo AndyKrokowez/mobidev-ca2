@@ -50,4 +50,8 @@ export class ApiService {
         return this.http.get(`https://www.breakingbadapi.com/api/deaths`)
     }
 
+    getDeath(id) {
+        return this.http.get(`https://www.breakingbadapi.com/api/deaths/${id}`)
+    }
+
 }

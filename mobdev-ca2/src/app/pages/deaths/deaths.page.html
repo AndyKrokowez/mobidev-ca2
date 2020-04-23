@@ -12,11 +12,39 @@
 
 	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder="Search Death">
 	</ion-searchbar>
+	<ion-card button *ngFor="let death of deaths | async">
+		<ion-card-content>
+			<ion-list>
 
-	<ion-list>
-		<ion-item button *ngFor="let death of deaths | async">
-			{{ death.death }}
-		</ion-item>
-	</ion-list>
+				<ion-item>
+					Death ID: {{ death.death_id }}
+				</ion-item>
 
+				<ion-item>
+					{{ death.death }}
+				</ion-item>
+
+				<ion-item>
+					Responsible: {{ death.responsible }}
+				</ion-item>
+
+				<ion-item>
+					Death Cause: {{ death.cause }}
+				</ion-item>
+
+				<ion-item>
+					Last words: {{ death.last_words }}
+				</ion-item>
+
+				<ion-item>
+					Season: {{ death.season }}
+				</ion-item>
+
+				<ion-item>
+					Episode: {{ death.episode }}
+				</ion-item>
+
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
