@@ -20,15 +20,11 @@
 	</ion-toolbar>
 </ion-header>
 
-
-
-
-
 <ion-content>
 
 	<ion-card *ngIf="episode">
 		<ion-card-content>
-			<ion-list>
+			<ion-list lines="none">
 
 				<ion-item>
 					Season: {{ episode.season }}
@@ -47,7 +43,7 @@
 				</ion-item>
 
 				<ion-item>
-					 Characters: {{ episode.characters }}
+					Characters: {{ episode.characters }}
 				</ion-item>
 
 			</ion-list>
