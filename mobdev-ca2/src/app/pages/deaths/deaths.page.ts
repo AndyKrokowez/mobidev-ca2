@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { SearchService, SearchType } from 'src/app/services/search.service';
+//import { SearchService, SearchType } from 'src/app/services/search.service';
 
 @Component({
     selector: 'app-deaths',
@@ -13,10 +13,10 @@ export class DeathsPage implements OnInit {
 
     deaths: Observable<any>;
     deathsId: Observable<any>
-    searchTerm: string = '';
-    type: SearchType = SearchType.all;
+  //  searchTerm: string = '';
+  //  type: SearchType = SearchType.all;
 
-    constructor(private router: Router, private api: ApiService, private searchService: SearchService) { }
+    constructor(private router: Router, private api: ApiService) { }
 
     ngOnInit() {
         this.deaths = this.api.getDeaths();
@@ -30,10 +30,10 @@ export class DeathsPage implements OnInit {
         this.router.navigateByUrl(`/tabs/deaths/${deathsId}`);
 
     }
-
-    searchChanged() {
-        this.deathsId = this.searchService.searchData(this.searchTerm, this.type);
-    }
+// after tried many different resources, still not working
+ //   searchChanged() {
+ //       this.deathsId = this.searchService.searchData(this.searchTerm, this.type);
+  //  }
 
 
 }
