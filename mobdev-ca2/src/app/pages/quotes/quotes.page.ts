@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 export class QuotesPage implements OnInit {
 
     quotes: any;
-    quotesId: Observable<any>
-    
+    quotesId: Observable<any>;
+    input: string = '';
 
     constructor(private router: Router, private api: ApiService) { }
 
@@ -22,6 +22,9 @@ export class QuotesPage implements OnInit {
             console.log('my data', data);
         });
 
+    }
+    search() {
+        this.quotes = this.api.searchQuote(this.input);
     }
 
     openDetails(quotes) {

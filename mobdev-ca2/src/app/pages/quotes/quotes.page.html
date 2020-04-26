@@ -9,7 +9,7 @@
 
 <ion-content>
 
-	<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder="Search Quote">
+	<ion-searchbar [(ngModel)]="input" (ionChange)="search($event)" placeholder="Search Quote by Character">
 	</ion-searchbar>
 
 	<ion-list>
